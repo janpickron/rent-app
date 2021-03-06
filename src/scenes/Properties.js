@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import ListGroup from 'react-bootstrap/ListGroup'
+import PropertyCard from '../components/PropertyCard'
+import CardColumns from 'react-bootstrap/CardColumns'
+
+const cardColumnStyle = {
+    display: 'flex',
+    alignItems: 'stretch',
+    flexWrap: 'wrap',
+    justifyContent: 'center'
+}
 
 function Properties() {
     const [propertyList, setPropertyList] = useState([])
@@ -15,16 +22,13 @@ function Properties() {
     <h1>Properties List</h1>
     {!propertyList
     ? <p>Loading...</p>
-    : <ListGroup>{propertyList.map(prop => {
+    : <CardColumns style={cardColumnStyle}>{propertyList.map(property => {
         return (
-        <ListGroup.Item key={prop.id}>
-            <Link to={`/properties/${prop.id}`}>
-            {prop.address}
-            </Link>
-            </ListGroup.Item>
-        )
+        <PropertyCard
+        key={property.id} 
+        property={property}/>)
     })}
-    </ListGroup>
+    </CardColumns>
 }
     </>
     )

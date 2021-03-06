@@ -9,6 +9,7 @@ function TopMenu() {
       <Nav className="mr-auto">
         <Nav.Link><NavLink to="/">Home</NavLink></Nav.Link>
         <Nav.Link><NavLink to="/properties">Properties</NavLink></Nav.Link>
+        <Nav.Link><NavLink to="/new">New</NavLink></Nav.Link>
       </Nav>
     </Navbar>
   )
